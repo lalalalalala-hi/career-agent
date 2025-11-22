@@ -41,23 +41,7 @@ The application follows a **Serverless Agentic Architecture**.
 4. **Long-Term Memory (Firebase Firestore):** Persists user profile and saved jobs across sessions.
 
 **System Diagram**
-
-graph TD
-    User[User] -->|Interacts| Client[React Client App]
-    
-    subgraph "Agent Brain (Gemini)"
-        Client -->|Sends Prompt + Context| LLM[Gemini 2.5 Flash]
-        LLM -->|Tool Call| Search[Google Search Tool]
-        Search -->|Live Results| LLM
-        LLM -->|Structured Response| Client
-    end
-    
-    subgraph "Long-Term Memory (Firebase)"
-        Client -->|Read/Write Profile| Firestore[(Firestore DB)]
-        Client -->|Save Jobs| Firestore
-    end
-    
-    Client -->|Auth (Anonymous/Custom)| Auth[Firebase Auth]
+<img width="1505" height="1277" alt="System Design" src="https://github.com/user-attachments/assets/c66145ca-a9b3-4f48-b1ce-35facec5e23a" />
 
 
 ### ✨ Key Features (Agent Capabilities)
